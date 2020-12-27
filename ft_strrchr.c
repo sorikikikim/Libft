@@ -12,7 +12,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == find)
-			return (s[i]);
+			return ((char *)&s[i]);
 		i--;
 	}
 	return (0);

@@ -2,7 +2,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 	unsigned char	find;
 
 	find = c;
@@ -10,7 +10,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == find)
-			return (s[i]);
+			return ((char *)&s[i]);
 		i++;
 	}
 	return (0);
