@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/29 17:38:13 by sorkim            #+#    #+#             */
+/*   Updated: 2020/12/29 17:44:57 by sorkim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	strs_len(char const *s, char c)
@@ -30,7 +42,7 @@ static size_t	sep_strs(char const *s, char c)
 	return (sep);
 }
 
-static void	mem_free(char **s, size_t count)
+static void		mem_free(char **s, size_t count)
 {
 	size_t i;
 
@@ -43,7 +55,7 @@ static void	mem_free(char **s, size_t count)
 	free(s);
 }
 
-static char	*ft_strndup(const char *s, size_t n)
+static char		*ft_strndup(const char *s, size_t n)
 {
 	size_t	i;
 	char	*result;
@@ -61,14 +73,14 @@ static char	*ft_strndup(const char *s, size_t n)
 	return (result);
 }
 
-char		**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**result;
 	size_t	count;
 	size_t	i;
 	size_t	strlen;
 
-	count = sep_strs(s, c);
+	count = strs_len(s, c);
 	result = (char **)malloc(sizeof(char *) * (count + 1));
 	if (result == 0)
 		return (0);

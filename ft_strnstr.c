@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:43:16 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:43:21 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:30:40 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while (i + j < len && haystack[i + j] == needle[j])
 			j++;
 		if (needle[j] == 0)
-			return((char *)&haystack[i]);
+			return ((char *)&haystack[i]);
 		i++;
 	}
 	return (0);

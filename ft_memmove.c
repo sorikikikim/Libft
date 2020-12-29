@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:39:08 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:39:11 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:26:44 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*d;
 	unsigned char	*s;
-	size_t		i;
+	size_t			i;
 
 	d = (unsigned char*)dst;
 	s = (unsigned char*)src;

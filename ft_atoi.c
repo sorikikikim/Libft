@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:31:44 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:31:49 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:23:14 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t i;
-	int minus;
-	unsigned int result;
+	size_t			i;
+	int				minus;
+	unsigned int	result;
 
 	i = 0;
 	minus = 1;

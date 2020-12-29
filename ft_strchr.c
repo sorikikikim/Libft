@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:40:02 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:40:08 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:27:47 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
+	int				i;
 	unsigned char	find;
 
 	find = c;

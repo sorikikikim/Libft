@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:37:29 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:37:33 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:24:07 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
-	size_t		i;
+	size_t			i;
 
 	str1 = (unsigned char*)s1;
 	str2 = (unsigned char*)s2;

@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:39:27 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 02:39:32 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/28 12:23:47 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	char		*str;
+	char			*str;
 	unsigned char	value;
-	size_t		i;
+	size_t			i;
 
 	str = b;
 	value = c;
