@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:43:48 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/28 12:30:14 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/30 15:51:17 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	find;
+	int		i;
+	char	find;
 
+	i = ft_strlen(s);
 	find = c;
-	i = 0;
-	while (s[i])
-		i++;
-	while (s[i])
+	while (i >= 0)
 	{
 		if (s[i] == find)
 			return ((char *)&s[i]);

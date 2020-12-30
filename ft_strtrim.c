@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/29 22:53:47 by sorkim            #+#    #+#             */
+/*   Updated: 2020/12/29 22:53:49 by sorkim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	is_end(char const *s1, char const *set, size_t len)
@@ -20,7 +32,7 @@ static size_t	is_start(char const *s1, char const *set, size_t len)
 	return (i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	len;
