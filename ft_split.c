@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:38:13 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/29 17:44:57 by sorkim           ###   ########.fr       */
+/*   Updated: 2020/12/30 20:11:21 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,12 @@ static size_t	sep_strs(char const *s, char c)
 	return (sep);
 }
 
-static void		mem_free(char **s, size_t count)
+static void		mem_free(char **s, int i)
 {
-	size_t i;
-
-	i = 0;
-	while (i < count)
+	while (i)
 	{
 		free(s[i]);
-		i++;
+		i--;
 	}
 	free(s);
 }

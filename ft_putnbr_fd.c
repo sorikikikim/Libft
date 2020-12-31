@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 02:43:16 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/31 14:40:46 by sorkim           ###   ########.fr       */
+/*   Created: 2020/12/31 14:44:38 by sorkim            #+#    #+#             */
+/*   Updated: 2020/12/31 14:44:41 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t i;
-	size_t j;
+	long nb;
 
-	i = 0;
-	if (*needle == 0)
-		return ((char *)haystack);
-	while (haystack[i] && i < len)
+	nb = n;
+	if (nb < 0)
 	{
-		j = 0;
-		while (needle[j] && (haystack[i + j] == needle[j]) && (i + j < len))
-		{
-			if (haystack[i + j] != needle[j])
-				break ;
-			j++;
-		}
-		if (needle[j] == 0)
-			return ((char *)&haystack[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		nb *= -1;
 	}
-	return (0);
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+		ft_putchar_fd(nb + '0', fd);
 }
