@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 17:24:22 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/31 17:24:24 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/01 18:44:10 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ t_list	*ft_lstnew(void *content)
 		return (0);
 	new->content = content;
 	new->next = 0;
-	return (t_list);
+	return (new);
 }
