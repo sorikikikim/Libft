@@ -6,95 +6,56 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:38:13 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/30 20:11:21 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/03 18:09:33 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	strs_len(char const *s, char c)
+static size_t	count_strs(char const *s, char c)
 {
-	size_t len;
+	size_t count;
 
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	return (len);
-}
-
-static size_t	sep_strs(char const *s, char c)
-{
-	size_t i;
-	size_t sep;
-
-	i = 0;
-	sep = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	count = 0;
+	while (*s)
 	{
-		sep++;
-		while (s[i] && s[i] != c)
-			i++;
-		while (s[i] && s[i] == c)
-			i++;
+		if (*s != c)
+		{
+			count++;
+			while (*s != 0 && *s != c)
+				s++;
+		}
+		else
+			s++;
 	}
-	return (sep);
-}
-
-static void		mem_free(char **s, int i)
-{
-	while (i)
-	{
-		free(s[i]);
-		i--;
-	}
-	free(s);
-}
-
-static char		*ft_strndup(const char *s, size_t n)
-{
-	size_t	i;
-	char	*result;
-
-	result = (char *)malloc(sizeof(char) * (n + 1));
-	if (result == 0)
-		return (0);
-	i = 0;
-	while (i < n)
-	{
-		result[i] = s[i];
-		i++;
-	}
-	result[i] = 0;
-	return (result);
+	return (count);
 }
 
 char			**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	count;
+	char	*start;
 	size_t	i;
-	size_t	strlen;
+	size_t	len;
 
-	count = strs_len(s, c);
-	result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (result == 0)
+	if (!(result = (char **)malloc(sizeof(char *) * (count_strs(s, c) + 1))))
 		return (0);
 	i = 0;
-	while (i < count)
+	while (*s)
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		strlen = sep_strs(s, c);
-		if (!(result[i] = ft_strndup(s, strlen)))
+		if (*s != c)
 		{
-			mem_free(result, i - 1);
-			return (0);
+			start = (char *)s;
+			while (*s != 0 && *s != c)
+				s++;
+			len = s - start + 1;
+			if (!(result[i] = (char *)malloc(len)))
+				return (0);
+			ft_strlcpy(result[i++], start, len);
 		}
-		s += strlen;
-		i++;
+		else
+			s++;
 	}
-	result[count] = 0;
+	result[i] = 0;
 	return (result);
 }

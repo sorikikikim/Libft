@@ -1,21 +1,27 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
+AR = ar rc
 NAME = libft.a
 HEADER = libft.h
-SRCS = $(wildcard *.c)
+BSRCS = $(wildcard *lst*.c)
+BOBJS = $(BSRCS:.c=.o)
+SRCS = $(filter-out $(BSRCS),$(wildcard *.c))
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rc $@ $^
+	$(AR) $@ $^
+
+bonus : $(BOBJS) $(OBJS)
+	$(AR) $(NAME) $^
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean : clean
 	$(RM) $(NAME)

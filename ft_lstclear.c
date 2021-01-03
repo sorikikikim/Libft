@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 18:10:13 by sorkim            #+#    #+#             */
-/*   Updated: 2021/01/01 19:16:48 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/03 17:26:34 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *now;
-	t_list *next;
+	t_list *tmp;
 
-	now = *lst;
-	while (lst->next != 0)
+	if (lst)
 	{
-		next = now->next;
-		ft_lstdelone(now, del);
-		now = next;
+		while (*lst)
+		{
+			tmp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = tmp;
+		}
 	}
-	*lst = 0;
 }

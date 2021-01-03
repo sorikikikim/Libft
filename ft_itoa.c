@@ -6,27 +6,27 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:37:28 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/29 17:39:37 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/03 17:14:27 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	num_count(int n, int base)
+static size_t	num_len(int n)
 {
-	size_t count;
+	size_t len;
 
-	count = 0;
+	len = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0 && base == 10)
-		count += 1;
+	if (n < 0)
+		len++;
 	while (n)
 	{
-		n /= base;
-		count += 1;
+		n /= 10;
+		len++;
 	}
-	return (count);
+	return (len);
 }
 
 char			*ft_itoa(int n)
@@ -36,11 +36,10 @@ char			*ft_itoa(int n)
 	char	*result;
 
 	flag = 0;
+	size = num_len(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	size = num_count(n, 10);
-	result = (char *)malloc(sizeof(char) * size + 1);
-	if (result == 0)
+	if (!(result = (char *)malloc(sizeof(char) * size + 1)))
 		return (0);
 	result[size] = 0;
 	if (n < 0)
@@ -51,7 +50,7 @@ char			*ft_itoa(int n)
 	}
 	while (flag < size)
 	{
-		result[size] = (n % 10) + '0';
+		result[size - 1] = (n % 10) + '0';
 		n /= 10;
 		size--;
 	}
