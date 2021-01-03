@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 14:43:33 by sorkim            #+#    #+#             */
-/*   Updated: 2020/12/31 14:43:36 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/03 19:11:32 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
 	size_t	i;
-	size_t	len;
 
-	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * len + 1);
+	str = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (str == 0)
 		return (0);
 	i = 0;
-	while (i < len)
+	while (s[i])
 	{
 		str[i] = f(i, s[i]);
 		i++;
 	}
-	str[len] = 0;
+	str[i] = 0;
 	return (str);
 }
