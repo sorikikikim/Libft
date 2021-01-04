@@ -34,7 +34,6 @@ static size_t	is_start(char const *s1, char const *set, size_t len)
 
 char			*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
 	size_t	len;
 	char	*str;
 	size_t	start;
@@ -44,7 +43,6 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	if (set == 0)
 		return (ft_strdup(s1));
-	i = 0;
 	len = ft_strlen(s1);
 	start = is_start(s1, set, len);
 	end = is_end(s1, set, len);
