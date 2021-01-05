@@ -6,7 +6,7 @@
 /*   By: sorkim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:38:13 by sorkim            #+#    #+#             */
-/*   Updated: 2021/01/03 18:09:33 by sorkim           ###   ########.fr       */
+/*   Updated: 2021/01/05 21:39:03 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ static size_t	count_strs(char const *s, char c)
 	return (count);
 }
 
+static char		**mem_free(char **result, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free(result[i]);
+	}
+	free(result);
+	return (0);
+}
+
 char			**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -50,7 +61,7 @@ char			**ft_split(char const *s, char c)
 				s++;
 			len = s - start + 1;
 			if (!(result[i] = (char *)malloc(len)))
-				return (0);
+				return (mem_free(result, i));
 			ft_strlcpy(result[i++], start, len);
 		}
 		else
