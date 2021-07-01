@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sorkim <sorkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 02:42:51 by sorkim            #+#    #+#             */
-/*   Updated: 2021/07/01 19:03:38 by sorkim           ###   ########.fr       */
+/*   Created: 2021/02/10 15:29:22 by sorkim            #+#    #+#             */
+/*   Updated: 2021/06/06 00:32:28 by sorkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
+# include <stdlib.h>
+# include <fcntl.h>
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5000
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 32
+# endif
+
+int				get_next_line(int fd, char **line);
+
+#endif
